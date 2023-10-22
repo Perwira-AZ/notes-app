@@ -5,7 +5,7 @@
 - [Download](https://nodejs.org/en) and Install Node.JS
 - Clone this repository
 ```bash
-  https://github.com/Perwira-AZ/notes-app.git
+  git clone https://github.com/Perwira-AZ/notes-app.git
 ```
 - Install dependencies
 ```bash
