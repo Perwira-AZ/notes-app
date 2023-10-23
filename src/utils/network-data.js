@@ -83,24 +83,28 @@ async function addNote({ title, body }) {
     return { error: false, data: responseJson.data };
 }
 
-async function getActiveNotes() {
+async function getActiveNotes(keyword) {
     const response = await fetchWithToken(`${BASE_URL}/notes`);
     const responseJson = await response.json();
 
     if (responseJson.status !== 'success') {
         return { error: true, data: null };
     }
-    return { error: false, data: responseJson.data };
+
+    const filteredActiveNotes = await responseJson.data.filter((note) => note.title.toLowerCase().includes(keyword.toLowerCase()));
+    return { error: false, data: filteredActiveNotes };
 }
 
-async function getArchivedNotes() {
+async function getArchivedNotes(keyword) {
     const response = await fetchWithToken(`${BASE_URL}/notes/archived`);
     const responseJson = await response.json();
 
     if (responseJson.status !== 'success') {
         return { error: true, data: null };
     }
-    return { error: false, data: responseJson.data };
+
+    const filteredArchivedNotes = await responseJson.data.filter((note) => note.title.toLowerCase().includes(keyword.toLowerCase()));
+    return { error: false, data: filteredArchivedNotes };
 }
 
 async function getNote(id) {

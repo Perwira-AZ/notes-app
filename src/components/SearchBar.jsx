@@ -1,17 +1,22 @@
 import React from 'react';
+import AppContext from '../context/AppContext';
 
-function SearchBar(search, defaultKeywords) {
+function SearchBar({ search, defaultKeywords }) {
+    const { locale } = React.useContext(AppContext);
     const [keyword, setKeyword] = React.useState(defaultKeywords || '');
 
     function onSearchInput(event) {
-        setKeyword(event.target.value);
-        console.log(keyword);
-        search(keyword);
+        const word = event.target.value;
+        setKeyword(word);
     }
+
+    React.useEffect(() => {
+        search(keyword);
+    }, [keyword]);
 
     return (
         <section className="search-bar">
-            <input type="text" placeholder="Cari berdasarkan judul..." value={keyword} onChange={onSearchInput} />
+            <input type="text" placeholder={locale === 'id' ? 'Cari berdasarkan judul...' : 'Find by Title...'} value={keyword} onChange={onSearchInput} />
         </section>
     );
 }
