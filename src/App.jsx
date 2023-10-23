@@ -14,19 +14,26 @@ import AppContext from './context/AppContext';
 function App() {
     const [authedUser, setAuthedUser] = React.useState(null);
     const [initialization, setInitialization] = React.useState(true);
-    const [theme, setTheme] = React.useState('dark');
-    const [locale, setLocale] = React.useState('id');
+    const [theme, setTheme] = React.useState(localStorage.getItem('theme') || 'dark');
+    const [locale, setLocale] = React.useState(localStorage.getItem('locale') || 'id');
+
+    if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'dark');
+    }
+    if (!localStorage.getItem('locale')) {
+        localStorage.setItem('locale', 'id');
+    }
 
     const toggleTheme = () => {
-        setTheme((prevTheme) => {
-            return prevTheme === 'dark' ? 'light' : 'dark';
-        });
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        setTheme(newTheme);
     };
 
     const toggleLocale = () => {
-        setLocale((prevLocale) => {
-            return prevLocale === 'id' ? 'en' : 'id';
-        });
+        const newLocale = locale === 'id' ? 'en' : 'id';
+        localStorage.setItem('locale', newLocale);
+        setLocale(newLocale);
     };
 
     const contextValue = React.useMemo(() => {
