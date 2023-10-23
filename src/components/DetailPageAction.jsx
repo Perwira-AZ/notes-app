@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { archiveNote } from '../utils/network-data';
 import { unarchiveNote } from '../utils/network-data';
 import { deleteNote } from '../utils/network-data';
+import PropTypes from 'prop-types';
 
 function DetailPageAction({ id, archived }) {
     const navigate = useNavigate();
@@ -39,5 +40,10 @@ function DetailPageAction({ id, archived }) {
         </div>
     );
 }
+
+DetailPageAction.propTypes = {
+    id: PropTypes.string.isRequired,
+    archived: PropTypes.bool.isRequired,
+};
 
 export default DetailPageAction;

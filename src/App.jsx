@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { getUserLogged, login, putAccessToken } from './utils/network-data';
 import Header from './components/header';
 import HomePage from './pages/HomePage';

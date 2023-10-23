@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { register } from '../utils/network-data';
 import AppContext from '../context/AppContext';
 

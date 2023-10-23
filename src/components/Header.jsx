@@ -4,6 +4,7 @@ import { BsTranslate } from 'react-icons/bs';
 import { HiOutlineLogout } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
+import PropTypes from 'prop-types';
 
 function Header({ onLogout }) {
     const { theme, toggleTheme, locale, toggleLocale } = React.useContext(AppContext);
@@ -32,5 +33,9 @@ function Header({ onLogout }) {
         </header>
     );
 }
+
+Header.PropTypes = {
+    onLogout: PropTypes.func.isRequired,
+};
 
 export default Header;

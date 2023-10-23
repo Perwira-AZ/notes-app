@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
+import PropTypes from 'prop-types';
 
 function LoginPage({ login }) {
     const { locale } = React.useContext(AppContext);
@@ -49,5 +50,9 @@ function LoginPage({ login }) {
         </section>
     );
 }
+
+LoginPage.propTypes = {
+    login: PropTypes.func.isRequired,
+};
 
 export default LoginPage;

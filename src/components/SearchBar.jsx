@@ -1,5 +1,6 @@
 import React from 'react';
 import AppContext from '../context/AppContext';
+import PropTypes from 'prop-types';
 
 function SearchBar({ search, defaultKeywords }) {
     const { locale } = React.useContext(AppContext);
@@ -20,5 +21,10 @@ function SearchBar({ search, defaultKeywords }) {
         </section>
     );
 }
+
+SearchBar.propTypes = {
+    search: PropTypes.func.isRequired,
+    defaultKeywords: PropTypes.string,
+};
 
 export default SearchBar;
