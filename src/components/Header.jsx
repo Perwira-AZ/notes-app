@@ -34,7 +34,7 @@ function Header({ onLogout }) {
     );
 }
 
-Header.PropTypes = {
+Header.propTypes = {
     onLogout: PropTypes.func.isRequired,
 };
 

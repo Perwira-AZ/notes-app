@@ -16,7 +16,7 @@ function NoteItem({ note }) {
     );
 }
 
-NoteItem.PropTypes = {
+NoteItem.propTypes = {
     note: PropTypes.object.isRequired,
 };
 

@@ -13,7 +13,7 @@ function NoteDetail({ note }) {
     );
 }
 
-NoteDetail.PropTypes = {
+NoteDetail.propTypes = {
     note: PropTypes.object.isRequired,
 };
 
