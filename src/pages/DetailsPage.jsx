@@ -6,7 +6,7 @@ import DetailPageAction from '../components/DetailPageAction';
 
 function DetailsPage() {
     const { id } = useParams();
-    const [note, setNote] = React.useState([]);
+    const [note, setNote] = React.useState({});
 
     React.useEffect(() => {
         getNote(id).then(({ data }) => {

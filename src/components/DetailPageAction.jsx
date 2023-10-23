@@ -43,7 +43,7 @@ function DetailPageAction({ id, archived }) {
 
 DetailPageAction.propTypes = {
     id: PropTypes.string.isRequired,
-    archived: PropTypes.bool.isRequired,
+    archived: PropTypes.bool,
 };
 
 export default DetailPageAction;
